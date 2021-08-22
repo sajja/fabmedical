@@ -6,7 +6,7 @@ const request = require('request');
 const app = express();
 
 app.use(express.static(path.join(__dirname, 'dist/content-web')));
-const contentApiUrl = process.env.CONTENT_API_URL || "http://localhost:3001";
+const contentApiUrl = process.env.CONTENT_API_URL || "http://40.114.53.131:3001";
 
 
 function getSessions(cb) {
@@ -21,6 +21,8 @@ function getSessions(cb) {
 
 function getSpeakers(cb) {
   request(contentApiUrl + '/speakers', function (err, response, body) {
+    console.log("woo hoo");
+
     if (err) {
       return cb(err);
     }
